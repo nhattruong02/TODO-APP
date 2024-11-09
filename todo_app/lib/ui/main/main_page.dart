@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/ui/task/create_task_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -122,7 +123,9 @@ class _MainPageState extends State<MainPage> {
             color: const Color(0xFF8687E7),
             borderRadius: BorderRadius.circular(32)),
         child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              _onShowCreateTask.call();
+            },
             icon: const Icon(
               Icons.add,
               size: 30,
@@ -131,5 +134,17 @@ class _MainPageState extends State<MainPage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
+  }
+
+  void _onShowCreateTask() {
+    showModalBottomSheet(
+        context: context,
+        isScrollControlled: true, // avoid input type
+        builder: (context) {
+          return Padding(
+            padding: MediaQuery.of(context).viewInsets, // avoid input type
+            child: const CreateTaskPage(),
+          );
+        });
   }
 }
