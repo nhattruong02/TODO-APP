@@ -16,6 +16,8 @@ dependencies:
   realm: ^1.6.1
   flutter_iconpicker: ^3.2.4
   flutter_colorpicker: ^1.0.3
+  # datetime
+  intl: any
 
 dev_dependencies:
   flutter_test:
